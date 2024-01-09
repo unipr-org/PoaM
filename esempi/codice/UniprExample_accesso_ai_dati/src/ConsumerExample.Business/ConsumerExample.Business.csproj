@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Utility.Kafka" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConsumerExample.Repository\ConsumerExample.Repository.csproj" />
+    <ProjectReference Include="..\UniprExample.Client.Http\UniprExample.Client.Http.csproj" />
+    <ProjectReference Include="..\UniprExample.Shared\UniprExample.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

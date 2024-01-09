@@ -1,0 +1,2 @@
+Per semplicità, i progetti che fanno parte del microservizio Consumer sono stati aggunti alla stessa soluzione del servizio Producer.
+Per semplificare, è possibile aggiungere anche il progetto Utility.Kafka alla soluzione, invece di importare il relativo pacchetto NuGet.

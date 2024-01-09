@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unipr.Anagrafiche.Repository", "Unipr.Anagrafiche.Repository\Unipr.Anagrafiche.Repository.csproj", "{C93F641B-E1E3-43F4-BA7F-F6F7A97CCD44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unipr.Anagrafiche.Business", "Unipr.Anagrafiche.Business\Unipr.Anagrafiche.Business.csproj", "{1840FF98-8409-4F77-83B8-653C1FFD560E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unipr.Anagrafiche.Shared", "Unipr.Anagrafiche.Shared\Unipr.Anagrafiche.Shared.csproj", "{433DB834-DB0E-4D99-BAFC-CB953D11E95B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unipr.Anagrafiche.ClientHttp", "Unipr.Anagrafiche.ClientHttp\Unipr.Anagrafiche.ClientHttp.csproj", "{C89338A1-DD58-4927-8075-17E7A6A355C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unipr.Anagrafiche.Api", "Unipr.Anagrafiche.Api\Unipr.Anagrafiche.Api.csproj", "{527ABBAB-22EA-42BC-8661-84CC307B65F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C93F641B-E1E3-43F4-BA7F-F6F7A97CCD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93F641B-E1E3-43F4-BA7F-F6F7A97CCD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93F641B-E1E3-43F4-BA7F-F6F7A97CCD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93F641B-E1E3-43F4-BA7F-F6F7A97CCD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1840FF98-8409-4F77-83B8-653C1FFD560E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1840FF98-8409-4F77-83B8-653C1FFD560E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1840FF98-8409-4F77-83B8-653C1FFD560E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1840FF98-8409-4F77-83B8-653C1FFD560E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{433DB834-DB0E-4D99-BAFC-CB953D11E95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433DB834-DB0E-4D99-BAFC-CB953D11E95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433DB834-DB0E-4D99-BAFC-CB953D11E95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433DB834-DB0E-4D99-BAFC-CB953D11E95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C89338A1-DD58-4927-8075-17E7A6A355C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C89338A1-DD58-4927-8075-17E7A6A355C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C89338A1-DD58-4927-8075-17E7A6A355C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C89338A1-DD58-4927-8075-17E7A6A355C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527ABBAB-22EA-42BC-8661-84CC307B65F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527ABBAB-22EA-42BC-8661-84CC307B65F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527ABBAB-22EA-42BC-8661-84CC307B65F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527ABBAB-22EA-42BC-8661-84CC307B65F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20574973-AA71-4FC7-8087-CF10031E9AB0}
+	EndGlobalSection
+EndGlobal

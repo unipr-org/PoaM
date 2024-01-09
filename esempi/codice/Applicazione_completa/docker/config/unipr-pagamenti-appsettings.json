@@ -1,0 +1,26 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "PagamentiDbContext": "Server=host.docker.internal,2433;Database=Pagamenti;User Id=sa;Password=p4ssw0rD;Encrypt=False"
+  },
+  "Kafka": {
+    "ProducerClient": {
+      "BootstrapServers": "host.docker.internal:9092"
+    },
+    "AdminClient": {
+      "BootstrapServers": "host.docker.internal:9092"
+    },
+    "Topics": {
+      "Versamenti": "Versamenti"
+    },
+    "ProducerService": {
+      "IntervalSeconds": 60,
+      "DelaySeconds": 60
+    }
+  }
+}
