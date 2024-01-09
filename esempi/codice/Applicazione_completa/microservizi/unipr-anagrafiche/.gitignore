@@ -1,0 +1,16 @@
+# Build artifacts
+/src/*/bin
+/src/*/obj
+/*/bin
+/*/obj
+/bin
+/obj
+
+# Temporary files
+/.vs
+
+# User settings
+/.vscode
+/src/*/*.*proj.user
+/*/*.*proj.user
+/*.*proj.user

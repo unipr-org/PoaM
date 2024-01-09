@@ -1,0 +1,26 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "UniprExampleDbContext": "Server=mssql-server;Database=CONSUMER;User Id=sa;Password=p4ssw0rD;Encrypt=False"
+  },
+  "Kafka": {
+    "ConsumerClient": {
+      "BootstrapServers": "kafka",
+      "GroupId": "ConsumerExample"
+    },
+    "AdminClient": {
+      "BootstrapServers": "kafka"
+    },
+    "Topics": {
+      "Studenti": "Studenti"
+    }
+  },
+  "UniprExampleClient": {
+    "BaseAddress": "https://uniprexampleapi/"
+  }
+}
