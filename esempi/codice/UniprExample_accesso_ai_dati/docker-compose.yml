@@ -1,0 +1,67 @@
+version: '3.4'
+
+services:
+  mssql-server:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    environment:
+      TZ: Europe/Rome
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_SA_PASSWORD: p4ssw0rD
+    ports:
+      - 2433:1433
+    volumes:
+      - "mssql-server:/var/opt/mssql"
+  adminer:
+    image: adminer:4.8.1
+    ports:
+      - 2431:8080
+    environment:
+      TZ: Europe/Rome
+      ADMINER_DEFAULT_SERVER: mssql-server
+
+  uniprexampleapi:
+    image: ${DOCKER_REGISTRY-}uniprexampleapi
+    build:
+      context: .
+      dockerfile: src/UniprExample.Api/Dockerfile
+    environment:
+      TZ: Europe/Rome
+    volumes:
+      - "./config/uniprexampleapi-appsettings.json:/app/appsettings.json:ro"
+
+  consumerexampleapi:
+    image: ${DOCKER_REGISTRY-}consumerexampleapi
+    build:
+      context: .
+      dockerfile: src/ConsumerExample.Api/Dockerfile
+    environment:
+      TZ: Europe/Rome
+    volumes:
+      - "./config/consumerexampleapi-appsettings.json:/app/appsettings.json:ro"
+
+  zookeeper:
+    container_name: zookeeper
+    image: 'bitnami/zookeeper:3.9.0'
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  
+  kafka:
+    container_name: kafka
+    image: 'bitnami/kafka:3.1.0'
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+    depends_on:
+      - zookeeper
+
+volumes:
+  mssql-server:

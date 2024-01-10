@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Unipr.Anagrafiche.ClientHttp" Version="3.1.0" />
+    <PackageReference Include="Unipr.Pagamenti.Shared" Version="3.2.0" />
+    <PackageReference Include="Unipr.Utility.Kafka" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unipr.Imu.Repository\Unipr.Imu.Repository.csproj" />
+    <ProjectReference Include="..\Unipr.Imu.Shared\Unipr.Imu.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

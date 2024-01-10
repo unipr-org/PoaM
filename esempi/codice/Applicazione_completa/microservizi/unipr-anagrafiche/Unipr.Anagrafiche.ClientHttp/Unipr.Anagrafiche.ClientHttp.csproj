@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <AssemblyVersion>3.1.0.0</AssemblyVersion>
+	  <PackageVersion>3.1.0</PackageVersion>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <InformationalVersion>$(PackageVersion)</InformationalVersion>
+	  <RepositoryUrl>https://github.com/Toooomm/unipr-anagrafiche</RepositoryUrl>
+	  <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Unipr.Anagrafiche.Shared\Unipr.Anagrafiche.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

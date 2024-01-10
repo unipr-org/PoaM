@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: NuGet
+on:
+  push:
+    tags: [ "v*" ]
+env:
+  TOOOOMM_NUGET_USERNAME: ${{ secrets.TOOOOMM_NUGET_USERNAME }}
+  TOOOOMM_NUGET_PASSWORD: ${{ secrets.TOOOOMM_NUGET_PASSWORD }}
+jobs:
+  publish_nuget:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore "Unipr.Pagamenti.sln"
+    - name: Build
+      run: dotnet build --no-restore "Unipr.Pagamenti.sln"
+    - name: Test
+      run: dotnet test --no-build --verbosity normal "Unipr.Pagamenti.sln"
+    - name: Build release
+      run: dotnet build --configuration "Release" --no-restore "Unipr.Pagamenti.sln"
+    - name: Pack
+      run: dotnet pack --no-restore --configuration Release "Unipr.Pagamenti.sln"
+    - name: Push
+      run: dotnet nuget push "*/bin/Release/*.nupkg" --source "Toooomm" --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
+

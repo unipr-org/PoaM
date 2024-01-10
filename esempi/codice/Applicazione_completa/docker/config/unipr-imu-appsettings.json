@@ -1,0 +1,26 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "ImuDbContext": "Server=host.docker.internal,2433;Database=Imu;User Id=sa;Password=p4ssw0rD;Encrypt=False"
+  },
+  "Kafka": {
+    "ConsumerClient": {
+      "BootstrapServers": "host.docker.internal:9092",
+      "GroupId": "Imu"
+    },
+    "AdminClient": {
+      "BootstrapServers": "host.docker.internal:9092"
+    },
+    "Topics": {
+      "Versamenti": "Versamenti"
+    }
+  },
+  "AnagraficheClientHttp": {
+    "BaseAddress": "https://unipr-anagrafiche:9854/"
+  }
+}

@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  mssql-server:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_SA_PASSWORD: p4ssw0rD
+    ports:
+      - 2433:1433
+    volumes:
+      - "mssql-server:/var/opt/mssql"
+  adminer:
+    image: adminer:4.8.1
+    ports:
+      - 2431:8080
+    environment:
+      TZ: Europe/Rome
+      ADMINER_DEFAULT_SERVER: mssql-server
+
+volumes:
+  mssql-server:

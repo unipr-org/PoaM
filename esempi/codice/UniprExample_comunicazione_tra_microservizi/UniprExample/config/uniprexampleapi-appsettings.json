@@ -1,0 +1,28 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning",
+      "Microsoft.EntityFrameworkCore.Database": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "UniprExampleDbContext": "Server=mssql-server;Database=UNIPR;User Id=sa;Password=p4ssw0rD;Encrypt=False"
+  },
+  "Kafka": {
+    "ProducerClient": {
+      "BootstrapServers": "kafka"
+    },
+    "AdminClient": {
+      "BootstrapServers": "kafka"
+    },
+    "Topics": {
+      "Studenti": "Studenti"
+    },
+    "ProducerService": {
+      "IntervalSeconds": 60,
+      "DelaySeconds": 60
+    }
+  }
+}

@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
+name: Docker
+on:
+  push:
+    tags: [ "v*" ]
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+jobs:
+  publish_docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login to container registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          # https://github.com/docker/metadata-action/tree/v4
+          # Nota: il tag 'latest' viene aggiunto automaticamente se non è una prerelease.
+          type=semver,pattern={{major}}.{{minor}}.{{patch}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=semver,pattern={{major}}
+    - name: Build and push
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        file: Unipr.Imu.Api/Dockerfile
+        build-args: |
+          "TOOOOMM_NUGET_USERNAME=${{ secrets.TOOOOMM_NUGET_USERNAME }}"
+          "TOOOOMM_NUGET_PASSWORD=${{ secrets.TOOOOMM_NUGET_PASSWORD }}"
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
