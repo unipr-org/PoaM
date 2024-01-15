@@ -1,0 +1,46 @@
+name: Sync submodule
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  actions: write
+  contents: write
+  
+jobs:
+  sync-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
+
+      - name: Aggiunta variabili ambiente
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      
+      - name: Aggiornamento submodule
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+          git add ./actions_submodule
+          git diff --exit-code --quiet || git commit -m "@sync_submodule_action: Aggiornamento actions_submodule"
+
+      - name: Copia file da actions_submodule
+        run: |
+          cp -r ./actions_submodule/shared_actions/* ./.github/workflows/
+          git add ./.github/workflows/
+          git diff --exit-code --quiet || git commit -m "@sync_submodule_action: Copia automatica di file da ./org-actions/shared_actions/* a ./.github/workflows/"
+
+      - name: Push submodule
+        run: |
+          if [ "${{ github.actor }}" != "github-actions" ]; then
+            git push origin main
+          else
+            echo "No push: actions-triggered"
+          fi
+
