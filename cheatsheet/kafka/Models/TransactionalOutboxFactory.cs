@@ -16,7 +16,7 @@ namespace Utility.Kafka.Models {
             opMsg.CheckMsg();
 
             return new RET(){
-                Tabella = nameof(MODEL),
+                Tabella = typeof(MODEL).Name,
                 Messaggio = JsonSerializer.Serialize(opMsg)
             };
         }
